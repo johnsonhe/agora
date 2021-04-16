@@ -1,4 +1,4 @@
 # Agora
 
 App brainstorming workflow stuff
-![App workflow](~/Downloads/agora.png)
+![App workflow](/home/victor/Downloads/agora.png)
