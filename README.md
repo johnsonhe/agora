@@ -1,4 +1,7 @@
 # Agora
 
-App brainstorming workflow stuff
-![App workflow](./agora.png)
+## App Workflow
+![App workflow](./img/agora.png)
+
+## App Architecture
+![App Architecture](./img/architecture.png)
