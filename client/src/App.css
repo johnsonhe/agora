@@ -90,6 +90,8 @@
 
 .Flex_container{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 90%;
   padding: .5em;
   /* border: 2px solid black; */
@@ -101,6 +103,7 @@
 .Trending_box{
   border-right: 1.2em solid #9E768F;
   margin-left: 2.2em;
+  margin-bottom: 1.5em;
   width: 21em;
   height: 27em;
   border-radius: .25em;
@@ -126,4 +129,5 @@
 
 /* #navbarID {
   background-color: #9FA4C4;
+  padding-top: 0em;
 } */
