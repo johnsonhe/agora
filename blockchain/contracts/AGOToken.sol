@@ -6,12 +6,15 @@ import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract AGOToken is ERC20 {
   constructor() ERC20("AgoraToken", "AGO") {}
 
-
-  function mintTokensOnCompletion() internal {
+  /** @dev Mints tokens when user has complete the introductory course
+   */
+  function mintTokensOnIntroCourseCompletion() external {
     _mint(msg.sender, 100);
   }
 
-  function mintTokensOnNewLevel() internal {
+  /** @dev Mints tokens when user has reached a new level
+   */
+  function mintTokensOnNewLevel() external {
     _mint(msg.sender, 10);
   }
 }
