@@ -127,3 +127,102 @@
   background-color: #9FA4C4;
   padding-top: 0em;
 }
+
+.Proposal_container{
+  width: 70%;
+  border-right: 1em solid #9E768F;
+  margin: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  height: 50em;
+  background-color: #F1EEF8;
+  border-radius: .2em;
+}
+
+.Proposal_title{
+  color: #9E768F;
+  font-weight: bold;
+  padding-top: .4em;
+}
+
+.Topic_goal{
+  display: flex;
+  margin-top: 4em;
+  margin-left: 5em;
+  width: 90%;
+  text-align: left;
+}
+
+#exampleFormControlInput1{
+  width: 17em;
+  /* overflow: scroll; */
+}
+
+#exampleFormControlInput2{
+  width: 15em;
+  /* overflow: scroll; */
+}
+
+.Form_label{
+  color: #9E768F;
+  font-size: 1.6em;
+  margin-bottom: .4em;
+}
+
+.Topic_div{
+  margin-left: 4em;
+}
+
+.Goal_div{
+  margin-left: 4em;
+}
+
+.Desc_div{
+  text-align: left;
+  width: 20em;
+  margin-left: 9em;
+  margin-top: 2em;
+}
+
+#exampleFormControlInput3{
+  width: 36em;
+  height: 10em;
+  padding-top: .5em;
+  /* overflow: scroll; */
+}
+
+.Contributor_deadline{
+  display: flex;
+  margin-top: 2em;
+  margin-left: 5em;
+  width: 90%;
+  text-align: left;
+}
+
+.Contributors_div{
+  margin-left: 4em;
+}
+
+.Deadline_div{
+  margin-left: 4em;
+}
+
+#exampleFormControlInput4{
+  width: 17em;
+  /* overflow: scroll; */
+}
+
+#exampleFormControlInput5{
+  width: 15em;
+  /* overflow: scroll; */
+}
+
+.Button_div{
+  margin-top: 4.6em;
+}
+
+.btn{
+  background-color: #9E768F;
+  text-decoration-color: white;
+  width: 6em;
+}
