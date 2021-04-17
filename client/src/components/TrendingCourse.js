@@ -6,6 +6,7 @@ class TrendingCourse extends Component {
       <div className="card mb-4">
         <div className="card-body Trending_box">
           <h2 className="Trending_course_title">Course Title 101</h2>
+          <hr></hr>
           <p className="Course_desc">Lorem ipsum dolor sit amet, 
           consectetur adipiscing elit, 
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
