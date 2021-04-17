@@ -22,7 +22,7 @@ const HomeNavbar = () => {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Home;
