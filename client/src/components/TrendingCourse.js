@@ -4,7 +4,7 @@ class TrendingCourse extends Component {
   render() {
     return (
       <div className="card mb-4">
-        <div className="card-body Trending_box">
+        <div className="card-body">
           <h2 className="Trending_course_title">Course Title 101</h2>
           <p className="Course_desc">Lorem ipsum dolor sit amet, 
           consectetur adipiscing elit, 
