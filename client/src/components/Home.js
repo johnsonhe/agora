@@ -6,17 +6,24 @@ import Trending from './Trending';
 function Home() {
   return (
     <section className="home">
+
       <HomeNavbar />
-      <h1 className="Agora_title">agora.</h1>
-      <SearchBar />
-      <Trending />
+      <div className="container">
+        <div className="row">
+          <h1 className="Agora_title">agora.</h1>
+          <SearchBar />
+        </div>
+        <div className="row">
+          <Trending />
+        </div>
+      </div>
     </section>
   )
 }
 
 const HomeNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light navbar-color">
       <div className="container-fluid">
         <div className="navbar-nav">
           <Link className="nav-link" to="/">Home</Link>
