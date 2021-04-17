@@ -1,15 +1,15 @@
 const SearchBar = () => (
     <form action="/" method="get">
         <label htmlFor="header-search">
-            <span className="searchbar">Search for a subject</span>
+            <span className="searchbar">search for a subject.</span>
         </label>
-        <input
+        <input className="search_Box"
             type="text"
             id="header-search"
-            placeholder="Search for a Subject"
+            placeholder="search for a subject."
             name="s" 
         />
-        <button type="submit">Search</button>
+        <button className="Search_button" type="submit">Search.</button>
     </form>
 );
 
