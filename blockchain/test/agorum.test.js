@@ -34,13 +34,6 @@ contract("Agorum", accounts => {
       assert.equal(agorumEvent.title, 'Intro Course');
       assert.equal(agorumEvent.description, 'describes how the platform works');
     });
-
-    it('adds course to courses list', async () => {
-      let agorumEvent = result.logs[0].args;
-      let courses = await agorum.getCourse(0);
-      
-      assert.equal(agorumEvent.courseAddress, courses, 'address is the same');
-    });
   });
 
 });
