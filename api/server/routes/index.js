@@ -7,6 +7,7 @@ module.exports = (app) => {
   }));
 
   app.post('/api/agorum', agorum.create);
+  app.get('/api/agorum', agorum.list)
 
   app.post('/api/user', user.create);
 };

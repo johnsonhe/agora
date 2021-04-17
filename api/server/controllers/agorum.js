@@ -10,4 +10,10 @@ module.exports = {
       .then(agorum => res.status(201).send(agorum))
       .catch(error => res.status(400).send(error));
   },
+  list(req, res) {
+    return Agorum
+      .findAll()
+      .then(agorum => res.status(200).send(agorum))
+      .catch(error => res.status(400).send(error));
+  },
 };
