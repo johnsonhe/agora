@@ -5,6 +5,15 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
     static associate = (models) => {
+      Course.belongsTo(models.Agorum, {
+        foreignKey: 'agorumId',
+        onDelete: 'CASCADE',
+      }),
+      Course.hasMany(models.CourseSection, {
+        foreignKey: 'courseId',
+        as: 'courseSection',
+        onDelete: 'CASCADE'
+      });
     }
   };
   Course.init({

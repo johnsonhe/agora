@@ -1,4 +1,5 @@
 const agorum = require('../controllers').agorum;
+const course = require('../controllers').course;
 const user = require('../controllers').user;
 
 module.exports = (app) => {
@@ -7,7 +8,9 @@ module.exports = (app) => {
   }));
 
   app.post('/api/agorum', agorum.create);
-  app.get('/api/agorum', agorum.list)
+  app.get('/api/agorum', agorum.list);
+
+  app.post('/api/agorum/:agorumId/course', course.create);
 
   app.post('/api/user', user.create);
 };

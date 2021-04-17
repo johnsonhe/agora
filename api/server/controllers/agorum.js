@@ -12,7 +12,12 @@ module.exports = {
   },
   list(req, res) {
     return Agorum
-      .findAll()
+      .findAll({
+        include: [{
+          model: Course,
+          as: 'course',
+        }],
+      })
       .then(agorum => res.status(200).send(agorum))
       .catch(error => res.status(400).send(error));
   },
