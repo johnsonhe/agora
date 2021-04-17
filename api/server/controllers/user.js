@@ -5,11 +5,11 @@ module.exports = {
     return User
       .create({
         name: req.body.name,
-        username: req.body.usrname,
+        username: req.body.username,
         password: req.body.password,
         email: req.body.email
       })
-      .then(todo => res.status(201).send(todo))
+      .then(user => res.status(201).send(user))
       .catch(error => res.status(400).send(error));
   },
   retrieve(req, res) {
@@ -20,13 +20,13 @@ module.exports = {
           as: 'userInfo',
         }],
       })
-      .then(todo => {
-        if (!todo) {
+      .then(user => {
+        if (!user) {
           return res.status(404).send({
             message: 'User Not Found',
           });
         }
-        return res.status(200).send(todo);
+        return res.status(200).send(user);
       })
       .catch(error => res.status(400).send(error));
   },
@@ -56,12 +56,12 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
-  
   destroy(req, res) {
     return User
       .find({
           where: {
-            id: req.params.id          },
+            id: req.params.id          
+          },
         })
       .then(user => {
         if (!user) {

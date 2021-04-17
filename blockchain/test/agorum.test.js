@@ -29,7 +29,6 @@ contract("Agorum", accounts => {
 
     it('creates a new course', async () => {
       let agorumEvent = result.logs[0].args;
-      console.log(agorumEvent);
       
       assert.equal(agorumEvent.agorumCreator, creator, 'creator address is correct');
       assert.equal(agorumEvent.title, 'Intro Course');
@@ -37,9 +36,11 @@ contract("Agorum", accounts => {
     });
 
     it('adds course to courses list', async () => {
+      let agorumEvent = result.logs[0].args;
       let courses = await agorum.getCourse(0);
-      console.log(courses);
-    })
+      
+      assert.equal(agorumEvent.courseAddress, courses, 'address is the same');
+    });
   });
 
 });

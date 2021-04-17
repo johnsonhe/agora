@@ -8,7 +8,7 @@ class Trending extends Component {
       <div>
         <h2 className="Trending_title">Trending Courses</h2>
           <hr className="Trending_line"></hr>
-          <div className="row">
+          <div className="row flex">
             <div className="col-3">
               <TrendingCourse />
             </div>
