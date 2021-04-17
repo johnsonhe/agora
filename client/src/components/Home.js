@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
+import Trending from './Trending';
 
 function Home() {
   return (
     <section className="home">
       <HomeNavbar />
-      <h1>agora.</h1>
+      <h1 className="Agora_title">agora.</h1>
+      <SearchBar />
+      <Trending />
     </section>
   )
 }

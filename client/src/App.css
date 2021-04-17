@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.searchbar {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.Agora_title{
+  color: #9E768F;
+  margin-top: 3em;
+  padding: .5em;
+  font-weight: bold;
+}
+
+.Trending_title{
+  margin-top: 4em;
+  color: #9E768F;
+  text-align: left;
+}
+
+.Trending_line{
+  color: #9E768F;
+  font-weight: bold;
+}
