@@ -36,3 +36,94 @@
     transform: rotate(360deg);
   }
 }
+
+.searchbar {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.search_Box{
+  width: 20em;
+  color: #9E768F;
+  border-radius: .25em;
+  border: .1em solid #9E768F;
+}
+
+.Search_button {
+  text-decoration: none;
+  background-color: #9E768F;
+  border: .1em solid #9E768F;
+  color: white;
+  border-radius: .2em;
+  margin-left: .7em;
+}
+
+.Agora_title{
+  color: #9E768F;
+  margin-top: 1em;
+  /* padding: .5em; */
+  margin-bottom: .25em;
+  font-size: 5em;
+  font-weight: bold;
+}
+
+.Trending_title{
+  margin-top: 4em;
+  color: #9E768F;
+  text-align: left;
+  margin-left: 1.25em;
+}
+
+.Trending_line{
+  color: #9E768F;
+  width: 90%;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  border: .25em solid #9E768F;
+  border-radius: 1em;
+}
+
+.Flex_container{
+  display: flex;
+  width: 90%;
+  padding: .5em;
+  /* border: 2px solid black; */
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  margin-top: 1.75em;
+}
+
+.Trending_box{
+  border-right: 1.2em solid #9E768F;
+  margin-left: 2.2em;
+  width: 21em;
+  height: 27em;
+  border-radius: .25em;
+  background-color: #F1EEF8;
+  overflow: scroll;
+}
+
+.Trending_course_title{
+  font-size: 1.5em;
+  text-align: left;
+  padding-left: 1.3em;
+  padding-top: .7em;
+  color: #9E768F;
+}
+
+.Course_desc{
+  text-align: left;
+  margin-left: 2em;
+  margin-right: 2em;
+  color: #9E768F;
+  margin-top: 1.3em;
+}
+
+/* #navbarID {
+  background-color: #9FA4C4;
+} */
