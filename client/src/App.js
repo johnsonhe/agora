@@ -97,6 +97,7 @@ function App() {
           </Route>
 
           <Route path="/introcourse">
+            <Header />
             <IntroCourse contracts={contracts} address={address} />
           </Route>
 
