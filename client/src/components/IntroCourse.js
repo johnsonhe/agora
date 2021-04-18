@@ -22,8 +22,8 @@ export default function IntroCourse(props) {
 
   return (
     <div className="card mb-4">
-      <div className="card-body Trending_box">
-        <h2 className="Trending_course_title">Course Title 101</h2>
+      <div >
+        <h2 className="Trending_course_title">Intro Course</h2>
         <hr></hr>
         <p className="Course_desc">THE IDEA <br></br><br></br>
 Agora - an online learning platform where users collaborate to create their own virtual learning communities, or Agorums, which revolve around open source education content, ie, users work together to create courses. These communities enable users to take courses with each other in cohorts, spread their knowledge and goodwill by becoming mentors, or take charge of their own learning by voting on community proposals.
