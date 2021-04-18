@@ -1,15 +1,20 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Courses', {
+    await queryInterface.createTable('ForumPosts', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID
       },
-      name: {
-        allowNull: false,
+      title: {
         type: Sequelize.STRING
+      },
+      content: {
+        type: Sequelize.STRING
+      },
+      support: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -19,19 +24,29 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      agorumId: {
+      forumId: {
         allowNull: false,
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
         references: {
-          model: 'Agorums',
+          model: 'Forums',
           key: 'id',
-          as: 'agorumId',
+          as: 'forumId',
         },
       },
+      userId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users',
+          key: 'id',
+          as: 'userId',
+        },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Courses');
+    await queryInterface.dropTable('ForumPosts');
   }
 };

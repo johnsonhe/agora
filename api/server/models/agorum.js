@@ -6,8 +6,13 @@ module.exports = (sequelize, DataTypes) => {
   class Agorum extends Model {
     static associate = (models) => {
       Agorum.hasOne(models.Course, {
-        foreignKey: 'courseId',
+        foreignKey: 'agorumId',
         as: 'course',
+        onDelete: 'CASCADE'
+      }),
+      Agorum.hasOne(models.Forum, {
+        foreignKey: 'agorumId',
+        as: 'forum',
         onDelete: 'CASCADE'
       });
     }
