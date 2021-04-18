@@ -67,7 +67,7 @@ function CourseModal(props) {
     };
 
     axios.request(options)
-      .then(res => console.log(res))
+      .then(res => handleClose())
       .catch(err => console.error(err));
   }
 
