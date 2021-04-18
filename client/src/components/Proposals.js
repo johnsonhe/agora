@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Proposal_form from './Proposal_form';
+import CourseList from './CourseList';
+
 
 function Proposals() {
     return (
       <section className="proposals">
   
         <HomeNavbar />
+        <div className="row">
+          <CourseList />
+        </div>
         <div className="container">
             <Proposal_form />
         </div>
