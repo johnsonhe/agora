@@ -29,6 +29,24 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
+  update(req, res) {
+    return CourseSection
+      .find(req.params.userId)
+      .then(CourseSection => {
+        if (!CourseSection) {
+          return res.status(404).send({
+            message: 'UserID Not Found',
+          });
+        }
+        return CourseSection
+          .update({
+            name: req.body.content || CourseSection.content,
+          })
+          .then(CourseSection => res.status(200).send(CourseSection))
+          .catch(error => res.status(400).send(error));
+      })
+      .catch(error => res.status(400).send(error));
+  },
   destroy(req, res) {
     return CourseSection
       .findByPk(req.params.sectionId)

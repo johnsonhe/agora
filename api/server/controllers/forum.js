@@ -38,23 +38,6 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
-  lookup(req, res) {
-    return Forum
-      .findAll({
-        where: {
-          name: req.params.name
-        }
-      })
-      .then(Forum => {
-        if (!Forum) {
-          return res.status(404).send({
-            message: 'Forum Not Found',
-          });
-        }
-        return res.status(200).send(Forum);
-      })
-      .catch(error => res.status(400).send(error));
-  },
   destroy(req, res) {
     return Forum
       .findByPk(req.params.ForumId)

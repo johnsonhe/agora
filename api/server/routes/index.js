@@ -26,7 +26,7 @@ module.exports = (app) => {
   app.delete('/api/agorum/:agorumId/course/:courseId', course.destroy);
 
   app.post('/api/proposal', proposal.create);
-  app.get('/api/proposal/', proposal.list);
+  app.get('/api/proposal', proposal.list);
   app.get('/api/proposal/:proposalId', proposal.retrieve);
   app.delete('/api/proposal/:proposalId', proposal.destroy);
 
@@ -47,15 +47,9 @@ module.exports = (app) => {
   app.delete('/api/forum/:forumId', forum.destroy);
 
   app.post('/api/forum/:forumId/forumpost', forumpost.create);
-  app.get('/api/forumpost', forumpost.list);
-  app.get('/api/forumpost/:postId', forumpost.retrieve);
-  app.put('/api/forumpost/:postId', forumpost.update);
   app.delete('/api/forumpost/:postId', forumpost.destroy);
 
   app.post('/api/forumpost/:postId/comment', comment.create);
-  app.get('/api/forumpost/:postId/comment', comment.list);
-  app.get('/api/comment/:commentId', comment.retrieve);
-  app.put('/api/comment/:commentId', comment.update);
   app.delete('/api/comment/:commentId', comment.destroy);
 
   app.post('/api/user', user.create);
