@@ -10,4 +10,49 @@ module.exports = {
       .then(proposal => res.status(201).send(proposal))
       .catch(error => res.status(400).send(error));
   },
+  list(req, res) {
+    return CourseProposal
+      .findAll({
+        include: [{
+          model: Contribution,
+          as: 'contribution',
+        }],
+      })
+      .then(Agorum => res.status(200).send(Agorum))
+      .catch(error => res.status(400).send(error));
+  },
+  retrieve(req, res) {
+    return CourseProposal
+      .findByPk(req.params.courseproposalId, {
+        include: [{
+          model: Course,
+          as: 'course',
+        }],
+      })
+      .then(CourseProposal => {
+        if (!CourseProposal) {
+          return res.status(404).send({
+            message: 'Course Proposal Not Found',
+          });
+        }
+        return res.status(200).send(CourseProposal);
+      })
+      .catch(error => res.status(400).send(error));
+  },
+  destroy(req, res) {
+    return CourseProposal
+      .findByPk(req.params.courseproposalId)
+      .then(CourseProposal => {
+        if (!CourseProposal) {
+          return res.status(400).send({
+            message: 'Course Proposal Not Found',
+          });
+        }
+        return CourseProposal
+          .destroy()
+          .then(() => res.status(204).send())
+          .catch(error => res.status(400).send(error));
+      })
+      .catch(error => res.status(400).send(error));
+  },
 };
