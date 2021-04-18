@@ -10,6 +10,17 @@ module.exports = {
       .then(course => res.status(201).send(course))
       .catch(error => res.status(400).send(error));
   },
+  list(req, res) {
+    return Course
+      .findAll({
+        include: [{
+          model: oursesection,
+          as: 'coursesection',
+        }],
+      })
+      .then(Agorum => res.status(200).send(Agorum))
+      .catch(error => res.status(400).send(error));
+  },
   retrieve(req, res) {
     return Course
       .findByPk(req.params.courseId)
