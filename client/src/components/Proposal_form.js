@@ -14,8 +14,12 @@ class Proposal_form extends Component {
   handleSubmit() {
     const options = {
       method: 'POST',
-      url: 'http://localhost:8000/'
+      url: 'http://localhost:8000/',
     }
+
+    axios.request(options)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -30,7 +34,7 @@ class Proposal_form extends Component {
             </div>
             <div className="Goal_div">
               <label for="exampleFormControlInput2" className="Form_label">Vote Goal</label>
-              <input type="goal" class="form-control" id="exampleFormControlInput2" placeholder="100"/>
+              <input type="goal" class="form-control" id="exampleFormControlInput2" placeholder="100" readOnly/>
             </div>
           </div>
           <div className="Desc_div">
@@ -44,7 +48,7 @@ class Proposal_form extends Component {
             </div>
             <div className="Deadline_div">
               <label for="exampleFormControlInput5" className="Form_label">Voting Days</label>
-              <input type="deadline" class="form-control" id="exampleFormControlInput5" placeholder="Enter voting days..."/>
+              <input type="deadline" class="form-control" id="exampleFormControlInput5" placeholder="30" readOnly/>
             </div> 
           </div>
             <div className="Categories_div">
