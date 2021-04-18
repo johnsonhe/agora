@@ -43,8 +43,6 @@ const HomeNavbar = () => {
               <SignupButton />
             </div>
           }
-          
-          
         </div>
       </div>
     </nav>
