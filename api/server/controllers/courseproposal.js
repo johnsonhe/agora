@@ -8,7 +8,7 @@ module.exports = {
         support: 0,
         description: req.body.description,
         contributors: req.body.contributors,
-        category: req.body.category
+        category: req.body.categories
       })
       .then(proposal => res.status(201).send(proposal))
       .catch(error => res.status(400).send(error));
