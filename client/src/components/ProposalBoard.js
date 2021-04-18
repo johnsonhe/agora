@@ -5,8 +5,14 @@ import axios from 'axios';
 
 export default function ProposalBoard() {
   useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'http://localhost:8000/api/proposal'
+    }
 
-  })
+    axios.request(options)
+      .then(res => console.log(res));
+  });
 
   return (
     <section className="container d-flex justify-content-center">
