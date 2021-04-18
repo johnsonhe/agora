@@ -57,7 +57,7 @@ contract Agorum {
   /** @dev Pays a contributor on the payroll when funds are available
    */
   function payContributor() internal {
-
+    
   }
 
   receive() external payable {
