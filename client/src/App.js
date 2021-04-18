@@ -18,10 +18,10 @@ function App() {
   const [web3js, setWeb3js] = useState(null);
   const [contracts, setContracts] = useState({agoToken: null, agorum: null});
 
+  /**
+   * Load web3 provider from dapp browser and set it in component state
+   */
   useEffect(() => {
-    /**
-     * Load web3 provider from dapp browser and set it in component state
-     */
     async function loadWeb3() {
       // modern dapp browser
       if(window.ethereum) {
@@ -43,6 +43,9 @@ function App() {
     loadWeb3();
   }, []);
 
+  /**
+   * Load in the smart contracts
+   */
   useEffect(() => {
     async function loadContracts() {
       try {
@@ -69,7 +72,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/Dashboard">
-            <Dashboard web3={web3js} />
+            <Dashboard web3={web3js} contracts={contracts} />
           </Route>
           <Route path = "/About">
             <About />
