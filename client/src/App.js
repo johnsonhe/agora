@@ -8,7 +8,8 @@ import Home from './components/Home';
 import Proposals from './components/Proposals';
 import About from './components/About';
 import Browse from './components/Browse';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
+import IntroCourse from './components/IntroCourse';
 
 // import contract abis
 import AGOToken from './build/contracts/AGOToken.json';
@@ -17,6 +18,7 @@ import Agorum from './build/contracts/Agorum.json';
 function App() {
   const [web3js, setWeb3js] = useState(null);
   const [contracts, setContracts] = useState({agoToken: null, agorum: null});
+  const [address, setAddress] = useState('');
 
   /**
    * Load web3 provider from dapp browser and set it in component state
@@ -67,13 +69,34 @@ function App() {
     loadContracts();
   }, [web3js]);
 
+  /**
+   * Load user address
+   */
+  useEffect(() => {
+    async function getAccount() {
+      try {
+        const address = await web3js.eth.getAccounts();
+        setAddress(address[0]);
+      } catch(error) {
+        console.error(error);
+      }
+    }
+
+    getAccount();
+  }, [web3js]);
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/Dashboard">
-            <Dashboard web3={web3js} contracts={contracts} />
+            <Dashboard web3={web3js} contracts={contracts} address={address} />
           </Route>
+
+          <Route path="/introcourse">
+            <IntroCourse contracts={contracts} address={address} />
+          </Route>
+
           <Route path = "/About">
             <About />
           </Route>
