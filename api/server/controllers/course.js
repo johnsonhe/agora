@@ -1,4 +1,5 @@
 const Course = require('../models').Course;
+const CourseSection = require('../models').CourseSection;
 
 module.exports = {
   create(req, res) {
@@ -14,8 +15,8 @@ module.exports = {
     return Course
       .findAll({
         include: [{
-          model: oursesection,
-          as: 'coursesection',
+          model:CourseSection,
+          as: 'CourseSection',
         }],
       })
       .then(Agorum => res.status(200).send(Agorum))

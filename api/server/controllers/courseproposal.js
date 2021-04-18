@@ -10,25 +10,10 @@ module.exports = {
       .then(proposal => res.status(201).send(proposal))
       .catch(error => res.status(400).send(error));
   },
-  list(req, res) {
-    return CourseProposal
-      .findAll({
-        include: [{
-          model: Contribution,
-          as: 'contribution',
-        }],
-      })
-      .then(Agorum => res.status(200).send(Agorum))
-      .catch(error => res.status(400).send(error));
-  },
+  
   retrieve(req, res) {
     return CourseProposal
-      .findByPk(req.params.courseproposalId, {
-        include: [{
-          model: Course,
-          as: 'course',
-        }],
-      })
+      .findByPk(req.params.courseproposalId)
       .then(CourseProposal => {
         if (!CourseProposal) {
           return res.status(404).send({
