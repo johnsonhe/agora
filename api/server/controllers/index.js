@@ -17,5 +17,5 @@ module.exports = {
   forum,
   forumpost,
   postcomment,
-  user,
+  user
 };

@@ -10,6 +10,12 @@ module.exports = {
       .then(proposal => res.status(201).send(proposal))
       .catch(error => res.status(400).send(error));
   },
+  list(req, res) {
+    return CourseProposal
+      .findAll()
+      .then(proposal => res.status(200).send(proposal))
+      .catch(error => res.status(400).send(error));
+  },
   retrieve(req, res) {
     return CourseProposal
       .findByPk(req.params.proposalId)
