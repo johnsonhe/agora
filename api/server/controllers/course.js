@@ -15,11 +15,11 @@ module.exports = {
     return Course
       .findAll({
         include: [{
-          model:CourseSection,
-          as: 'CourseSection',
+          model: CourseSection,
+          as: 'coursesections',
         }],
       })
-      .then(Agorum => res.status(200).send(Agorum))
+      .then(course => res.status(200).send(course))
       .catch(error => res.status(400).send(error));
   },
   retrieve(req, res) {

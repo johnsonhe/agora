@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   ForumPost.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      primaryKey: true
+    },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     support: DataTypes.INTEGER

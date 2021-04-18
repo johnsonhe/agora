@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate = (models) => {
       Agorum.hasOne(models.Course, {
         foreignKey: 'agorumId',
-        as: 'course',
+        as: 'courses',
         onDelete: 'CASCADE'
       }),
       Agorum.hasOne(models.Forum, {
         foreignKey: 'agorumId',
-        as: 'forum',
+        as: 'forums',
         onDelete: 'CASCADE'
       });
     }

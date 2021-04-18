@@ -1,4 +1,5 @@
 const Forum = require('../models').Forum;
+const ForumPost = require('../models').ForumPost;
 
 module.exports = {
   create(req, res) {
@@ -15,12 +16,8 @@ module.exports = {
       .findAll({
         include: [{
           model: ForumPost,
-          as: 'posts',
-        },
-        {
-          model: PostComment,
-          as: 'comments',
-        }],
+          as: 'forumpost',
+        }]
       })
       .then(Forum => res.status(200).send(Forum))
       .catch(error => res.status(400).send(error));

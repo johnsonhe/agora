@@ -7,7 +7,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasMany(models.ForumPost, {
         foreignKey: 'userId',
-        as: 'forumPost',
+        as: 'forumposts',
+        onDelete: 'CASCADE'
+      }),
+      User.hasMany(models.PostComment, {
+        foreignKey: 'userId',
+        as: 'postcomments',
+        onDelete: 'CASCADE'
+      }),
+      User.hasMany(models.Contribution, {
+        foreignKey: 'userId',
+        as: 'contributions',
         onDelete: 'CASCADE'
       });
     }

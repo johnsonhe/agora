@@ -17,7 +17,11 @@ module.exports = {
       .findAll({
         include: [{
           model: Course,
-          as: 'course',
+          as: 'courses',
+        },
+        {
+          model: Forum,
+          as: 'forums',
         }],
       })
       .then(Agorum => res.status(200).send(Agorum))

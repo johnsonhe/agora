@@ -8,11 +8,19 @@ module.exports = (sequelize, DataTypes) => {
       Contribution.belongsTo(models.Course, {
         foreignKey: 'courseId',
         onDelete: 'CASCADE',
+      }),
+      Contribution.belongsTo(models.User, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE',
       })
     }
   };
   Contribution.init({
-    user: DataTypes.UUID,
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      primaryKey: true
+    },
     content: DataTypes.STRING
   }, {
     sequelize,

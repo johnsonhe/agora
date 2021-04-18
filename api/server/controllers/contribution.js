@@ -5,7 +5,7 @@ module.exports = {
     return Contribution
       .create({
         courseId: req.params.courseId,
-        user: req.body.user,
+        userId: req.body.userId,
         content: req.body.content
       })
       .then(contribution => res.status(201).send(contribution))

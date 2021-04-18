@@ -9,14 +9,19 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'agorumId',
         onDelete: 'CASCADE',
       }),
-      Forum.hasMany(models.CourseSection, {
+      Forum.hasMany(models.ForumPost, {
         foreignKey: 'forumId',
-        as: 'forumPost',
+        as: 'forumpost',
         onDelete: 'CASCADE'
       });
     }
   };
   Forum.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      primaryKey: true
+    },
     posts: DataTypes.INTEGER
   }, {
     sequelize,

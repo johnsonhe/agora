@@ -1,4 +1,7 @@
 const User = require('../models').User;
+const ForumPost = require('../models').ForumPost;
+const PostComment = require('../models').PostComment;
+const Contribution = require('../models').Contribution;
 
 module.exports = {
   create(req, res) {
@@ -10,14 +13,25 @@ module.exports = {
         email: req.body.email
       })
       .then(user => res.status(201).send(user))
-      .catch(error => res.status(400).send(error));
+      .catch(error => {
+        res.status(400).send(error.toString());
+        console.log(error)
+      });
   },
   list(req, res) {
     return User
       .findAll({
         include: [{
-          model: Course,
-          as: 'course',
+          model: Contribution,
+          as: 'contributions'
+        },
+        {
+          model: ForumPost,
+          as: 'forumposts'
+        },
+        {
+          model: PostComment,
+          as: 'postcomments'
         }],
       })
       .then(User => res.status(200).send(User))
@@ -54,7 +68,6 @@ module.exports = {
             message: 'UserID Not Found',
           });
         }
-  
         return user
           .update({
             name: req.body.name || user.name,
