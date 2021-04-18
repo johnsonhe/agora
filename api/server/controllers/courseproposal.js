@@ -4,8 +4,11 @@ module.exports = {
   create(req, res) {
     return CourseProposal
       .create({
+        title: req.body.title,
         support: 0,
-        description: req.body.content
+        description: req.body.description,
+        contributors: req.body.contributors,
+        category: req.body.category
       })
       .then(proposal => res.status(201).send(proposal))
       .catch(error => res.status(400).send(error));

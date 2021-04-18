@@ -7,10 +7,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID
       },
+      title: {
+        type: Sequelize.STRING
+      },
       support: {
         type: Sequelize.INTEGER
       },
       description: {
+        type: Sequelize.STRING
+      },
+      contributors: {
+        type: Sequelize.STRING
+      },
+      category: {
         type: Sequelize.STRING
       },
       createdAt: {
