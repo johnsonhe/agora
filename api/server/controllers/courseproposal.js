@@ -10,10 +10,9 @@ module.exports = {
       .then(proposal => res.status(201).send(proposal))
       .catch(error => res.status(400).send(error));
   },
-  
   retrieve(req, res) {
     return CourseProposal
-      .findByPk(req.params.courseproposalId)
+      .findByPk(req.params.proposalId)
       .then(CourseProposal => {
         if (!CourseProposal) {
           return res.status(404).send({
@@ -26,7 +25,7 @@ module.exports = {
   },
   destroy(req, res) {
     return CourseProposal
-      .findByPk(req.params.courseproposalId)
+      .findByPk(req.params.proposalId)
       .then(CourseProposal => {
         if (!CourseProposal) {
           return res.status(400).send({
