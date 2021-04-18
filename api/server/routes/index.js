@@ -31,6 +31,7 @@ module.exports = (app) => {
   app.post('/api/proposal', proposal.create);
   app.get('/api/proposal', proposal.list);
   app.get('/api/proposal/:proposalId', proposal.retrieve);
+  app.put('/api/proposal/:proposalId', proposal.update);
   app.delete('/api/proposal/:proposalId', proposal.destroy);
 
   app.post('/api/course/:courseId/contribution', contribution.create);

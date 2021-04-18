@@ -32,6 +32,28 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
+  update(req, res) {
+    return CourseProposal
+      .findByPk(req.params.proposalId)
+      .then(CourseProposal => {
+        if (!CourseProposal) {
+          return res.status(404).send({
+            message: 'ProposalID Not Found',
+          });
+        }
+        return CourseProposal
+          .update({
+            title: req.body.title || CourseProposal.title,
+            support: req.body.support || CourseProposal.support,
+            description: req.body.description || CourseProposal.description,
+            contributors: req.body.contributors || CourseProposal.contributors,
+            category: req.body.category || CourseProposal.category,
+          })
+          .then(CourseProposal => res.status(200).send(CourseProposal))
+          .catch(error => res.status(400).send(error));
+      })
+      .catch(error => res.status(400).send(error));
+  },
   destroy(req, res) {
     return CourseProposal
       .findByPk(req.params.proposalId)
