@@ -10,6 +10,8 @@ import About from './components/About';
 import Browse from './components/Browse';
 import Dashboard from './components/dashboard/Dashboard';
 import IntroCourse from './components/IntroCourse';
+import ProposeBoard from './components/ProposalBoard';
+import Header from './components/layout/Header'
 
 // import contract abis
 import AGOToken from './build/contracts/AGOToken.json';
@@ -103,7 +105,14 @@ function App() {
           <Route path = "/Browse">
             <Browse />
           </Route>
-          <Route path = "/Proposals">
+
+          <Route path="/proposals">
+            <Header />
+            <ProposeBoard />
+          </Route>
+
+          <Route path="/proposecourse">
+            <Header />
             <Proposals />
           </Route>
           <Route exact path="/">

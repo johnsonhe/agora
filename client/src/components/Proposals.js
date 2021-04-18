@@ -5,8 +5,6 @@ import Proposal_form from './Proposal_form';
 function Proposals() {
     return (
       <section className="proposals">
-  
-        <HomeNavbar />
         <div className="container">
             <Proposal_form />
         </div>

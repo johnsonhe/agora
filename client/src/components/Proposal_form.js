@@ -5,7 +5,15 @@ class Proposal_form extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      title: '',
+      description: '',
+      contributors: '',
+      categories: '',
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   /**
@@ -15,11 +23,22 @@ class Proposal_form extends Component {
     const options = {
       method: 'POST',
       url: 'http://localhost:8000/',
+      data: this.state
     }
 
     axios.request(options)
       .then(res => console.log(res))
       .catch(err => console.log(err));
+  }
+
+  handleInputChange(e) {
+    e.preventDefault();
+    const value = e.target.value;
+    const name = e.target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   render() {
@@ -30,21 +49,21 @@ class Proposal_form extends Component {
           <div className="Topic_goal">
             <div className="Topic_div">
             <label for="exampleFormControlInput1" className="Form_label">Course Title</label>
-            <input type="topic" class="form-control" id="exampleFormControlInput1" placeholder="Subject 101"/>
+            <input type="topic" class="form-control" name="title" placeholder="Subject 101" onChange={this.handleInputChange}/>
             </div>
             <div className="Goal_div">
               <label for="exampleFormControlInput2" className="Form_label">Vote Goal</label>
-              <input type="goal" class="form-control" id="exampleFormControlInput2" placeholder="100" readOnly/>
+              <input type="goal" class="form-control" placeholder="100" readOnly/>
             </div>
           </div>
           <div className="Desc_div">
             <label for="exampleFormControlInput3" className="Form_label">Course Description</label>
-            <textarea type="desc" class="form-control" id="exampleFormControlInput3"placeholder="Course Description..."/>
+            <textarea type="desc" class="form-control" name="description" placeholder="Course Description..." onChange={this.handleInputChange}/>
           </div>
           <div className="Contributor_deadline">
             <div className="Contributors_div">
               <label for="exampleFormControlInput4" className="Form_label">Course Contributors</label>
-              <input type="contributor" class="form-control" id="exampleFormControlInput4" />
+              <input type="contributor" class="form-control" name="contributors" onChange={this.handleInputChange} />
             </div>
             <div className="Deadline_div">
               <label for="exampleFormControlInput5" className="Form_label">Voting Days</label>
@@ -52,8 +71,8 @@ class Proposal_form extends Component {
             </div> 
           </div>
             <div className="Categories_div">
-                <label for="exampleFormControlInput6" className="Form_label">Categories</label>
-                <input type="categories" class="form-control" id="exampleFormControlInput6" placeholder="Enter a comma-seperated list of categories"/>
+              <label for="exampleFormControlInput6" className="Form_label">Category</label>
+              <input type="categories" class="form-control" name="categories" placeholder="Enter one category your course falls..." onChange={this.handleInputChange}/>
             </div>
           <div className="Button_div m-5">
             <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
