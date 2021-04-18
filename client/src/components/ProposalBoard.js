@@ -17,7 +17,7 @@ export default function ProposalBoard() {
         setProposals(res.data);
       })
       .catch(err => console.error(err));
-  }, []);
+  }, [setProposals]);
 
   return (
     <section className="container d-flex justify-content-center">
@@ -35,9 +35,13 @@ export default function ProposalBoard() {
 }
 
 function CourseProposalList(props) {
-  const proposals = props.proposals.map((proposal, index) => {
-    return <CourseModal proposal={proposal} key={index} />;
-  })
+  let proposals;
+
+  if (props.proposals) {
+    proposals = props.proposals.map((proposal, index) => {
+      return <CourseModal proposal={proposal} key={index} />;
+    })
+  }
   
   return (
     <ul className="list-group">
@@ -57,7 +61,9 @@ function CourseModal(props) {
     const options = {
       method: 'PUT',
       url: `http://localhost:8000/api/proposal/${proposal.id}`,
-      data: proposal.support++
+      data: {
+        support: ++proposal.support
+      }
     };
 
     axios.request(options)
