@@ -113,6 +113,10 @@ function App() {
             <ProposeBoard />
           </Route>
 
+          <Route path="/agorum/:id" >
+            <AgorumView />
+          </Route>
+
           <Route path="/editcourse:id">
             <Header />
             <EditCourse />
