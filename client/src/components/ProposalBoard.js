@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export default function ProposalBoard() {
+  useEffect(() => {
+
+  })
+
   return (
     <section className="container d-flex justify-content-center">
       <div className="col-8">

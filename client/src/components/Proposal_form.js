@@ -20,15 +20,29 @@ class Proposal_form extends Component {
    * Creates an course template in p/courseProposalName
    */
   handleSubmit() {
+    const courseProposal = {
+      title: this.state.title,
+      description: this.state.description,
+      contributors: this.state.contributors,
+      categories: this.state.categories,
+    };
+
     const options = {
       method: 'POST',
-      url: 'http://localhost:8000/',
-      data: this.state
+      url: 'http://localhost:8000/api/proposal',
+      data: courseProposal
     }
 
     axios.request(options)
       .then(res => console.log(res))
       .catch(err => console.log(err));
+
+    this.setState({
+      title: '',
+      description: '',
+      contributors: '',
+      categories: '',
+    });
   }
 
   handleInputChange(e) {

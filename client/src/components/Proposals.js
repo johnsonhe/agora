@@ -11,7 +11,7 @@ function Proposals() {
             <Proposal_form />
         </div>
       </section>
-    )
+    );
   }
 
   const HomeNavbar = () => {
