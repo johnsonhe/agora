@@ -9,6 +9,7 @@ module.exports = (app) => {
 
   app.post('/api/agorum', agorum.create);
   app.get('/api/agorum', agorum.list);
+  app.get('/api/agorum/:agorumId', agorum.retrieve)
 
   app.post('/api/agorum/:agorumId/course', course.create);
 
