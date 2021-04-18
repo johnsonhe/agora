@@ -1,3 +1,4 @@
+const cors = require('cors');
 const agorum = require('../controllers').agorum;
 const course = require('../controllers').course;
 const proposal = require('../controllers').courseproposal;
@@ -9,6 +10,8 @@ const comment = require('../controllers').postcomment;
 const user = require('../controllers').user;
 
 module.exports = (app) => {
+  app.use(cors());
+
   app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the Agorum API!',
   }));
