@@ -8,7 +8,6 @@ module.exports = {
         type: Sequelize.UUID
       },
       number: {
-        allowNull: false,
         autoIncrement: true,
         type: Sequelize.INTEGER
       },

@@ -30,7 +30,7 @@ module.exports = (app) => {
   app.get('/api/proposal/:proposalId', proposal.retrieve);
   app.delete('/api/proposal/:proposalId', proposal.destroy);
 
-  app.post('/api/contribution', contribution.create);
+  app.post('/api/course/:courseId/contribution', contribution.create);
   app.get('/api/contribution', contribution.list);
   app.get('/api/contribution/:contributionId', contribution.retrieve);
   app.delete('api/contribution/:contributionId', contribution.destroy);

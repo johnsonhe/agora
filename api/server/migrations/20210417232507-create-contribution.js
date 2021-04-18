@@ -7,10 +7,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID
       },
-      user: {
-        allowNull: false,
-        type: Sequelize.UUID
-      },
       content: {
         type: Sequelize.STRING
       },
@@ -30,6 +26,16 @@ module.exports = {
           model: 'Courses',
           key: 'id',
           as: 'courseId',
+        },
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users',
+          key: 'id',
+          as: 'userId',
         },
       },
     });

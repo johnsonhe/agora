@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   PostComment.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      primaryKey: true
+    },
     content: DataTypes.STRING,
     support: DataTypes.INTEGER
   }, {

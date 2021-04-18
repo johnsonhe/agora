@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   CourseProposal.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      primaryKey: true
+    },
     support: DataTypes.INTEGER,
     description: DataTypes.STRING
   }, {

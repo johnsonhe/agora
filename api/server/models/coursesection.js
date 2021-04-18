@@ -8,10 +8,15 @@ module.exports = (sequelize, DataTypes) => {
       CourseSection.belongsTo(models.Course, {
         foreignKey: 'courseId',
         onDelete: 'CASCADE',
-      })
+      });
     }
   };
   CourseSection.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      primaryKey: true
+    },
     number: DataTypes.INTEGER,
     content: DataTypes.STRING
   }, {
