@@ -10,8 +10,13 @@ import About from './components/About';
 import Browse from './components/Browse';
 import Dashboard from './components/Dashboard';
 
+// import contract abis
+import AGOToken from './build/contracts/AGOToken.json';
+import Agorum from './build/contracts/Agorum.json';
+
 function App() {
-  const [web3, setWeb3] = useState(null);
+  const [web3js, setWeb3js] = useState(null);
+  const [contracts, setContracts] = useState({agoToken: null, agorum: null});
 
   useEffect(() => {
     /**
@@ -20,7 +25,7 @@ function App() {
     async function loadWeb3() {
       // modern dapp browser
       if(window.ethereum) {
-        setWeb3(new Web3(window.ethereum));
+        setWeb3js(new Web3(window.ethereum));
         try {
           await window.ethereum.enable();
         } catch (error) {
@@ -29,21 +34,42 @@ function App() {
         }
         // legacy dapp browser
       } else if (window.web3) {
-        setWeb3(new Web3(window.web3.currentProvider))
+        setWeb3js(new Web3(window.web3.currentProvider))
       } else {
         window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
       }
     }
 
     loadWeb3();
-  }, [window.ethereum, window.web3.currentProvider]);
+  }, []);
+
+  useEffect(() => {
+    async function loadContracts() {
+      try {
+        let agoToken = new web3js.eth.Contract(AGOToken.abi, AGOToken.networks[5777].address);
+        let agorum = new web3js.eth.Contract(Agorum.abi, Agorum.networks[5777].address);
+
+        // merge within the current state
+        setContracts(prevState => {
+          let newData = { ...prevState };
+          newData['agoToken'] = agoToken;
+          newData['agorum'] = agorum;
+          return { ...prevState, ...newData };
+        });
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    loadContracts();
+  }, [web3js]);
 
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/Dashboard">
-            <Dashboard web3={web3} />
+            <Dashboard web3={web3js} />
           </Route>
           <Route path = "/About">
             <About />

@@ -23,7 +23,6 @@ function Home() {
 
 const HomeNavbar = () => {
   const { isAuthenticated } = useAuth0();
-  console.log(isAuthenticated)
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-color p-3 ">

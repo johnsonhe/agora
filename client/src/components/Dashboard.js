@@ -2,22 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
-// import contract abi
-import AGOToken from '../build/contracts/AGOToken.json';
 
 function Dashboard(props) {
   const { user } = useAuth0();
-  const [contract, setContract] = useState();
   const web3 = props.web3;
-
-  useEffect(() => {
-    async function loadContracts() {
-      let agoToken = new web3.eth.Contract(AGOToken.abi, AGOToken.networks[5777].address);
-      console.log(agoToken)
-    }
-
-    loadContracts();
-  })
 
   /**
    * calls mint token function on AGOToken smart contract
