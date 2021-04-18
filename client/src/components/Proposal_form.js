@@ -47,12 +47,10 @@ class Proposal_form extends Component {
               <input type="deadline" class="form-control" id="exampleFormControlInput5" placeholder="Enter voting days..."/>
             </div> 
           </div>
-          <div className="categories justify-content-center d-flex">
-            <div className="form-group m-2">
-              <label className="Form_label">Categories</label>
-              <input style={{"width": "400px"}} type="text" className="form-control" placeholder="Enter comma-separated list of categories"/>
+            <div className="Categories_div">
+                <label for="exampleFormControlInput6" className="Form_label">Categories</label>
+                <input type="categories" class="form-control" id="exampleFormControlInput6" placeholder="Enter a comma-seperated list of categories"/>
             </div>
-          </div>
           <div className="Button_div m-5">
             <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
           </div>

@@ -130,7 +130,7 @@
 
 .Proposal_container{
   width: 70%;
-  border-right: 1em solid #9E768F;
+  border-right: 1.3em solid #9E768F;
   margin: auto;
   margin-top: 3em;
   margin-bottom: 3em;
@@ -225,4 +225,11 @@
   background-color: #9E768F;
   text-decoration-color: white;
   width: 6em;
+}
+
+.Categories_div{
+  text-align: left;
+  width: 65%;
+  margin-left: 9em;
+  margin-top: 2em;
 }
